@@ -6,6 +6,7 @@ require("config.lazy")
 vim.cmd("autocmd BufNewFile,BufRead *.script set filetype=lua")
 vim.cmd("autocmd BufNewFile,BufRead *.gui_script set filetype=lua")
 vim.cmd("autocmd BufNewFile,BufRead *.render_script set filetype=lua")
+vim.cmd("autocmd BufNewFile,BufRead *.luac set filetype=lua")
 
 vim.cmd("autocmd BufNewFile,BufRead *.collection set filetype=proto")
 vim.cmd("autocmd BufNewFile,BufRead *.atlas set filetype=proto")

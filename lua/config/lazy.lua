@@ -1,5 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
+
   -- bootstrap lazy.nvim
   -- stylua: ignore
   vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git",
@@ -52,4 +53,128 @@ require("lazy").setup({
     },
 })
 
-require("lspconfig").lua_ls.setup({})
+require("lspconfig").lua_ls.setup({
+    settings = {
+        lua = {
+            ["editor.defaultFormatter"] = "sumneko.lua",
+        },
+        Lua = {
+            runtime = {
+                version = "LuaJIT",
+            },
+            workspace = {
+                library = {
+                    vim.fn.expand("~/.config/Code/User/globalStorage/astronachos.defold"),
+                },
+            },
+            completion = {
+                callSnippet = "Replace",
+                keywordSnippet = "Replace",
+                showWord = "Fallback",
+                autoRequire = false,
+            },
+            diagnostics = {
+                globals = {
+                    "msg",
+                    "sound",
+                    "hash",
+                    "vmath",
+                    "gui",
+                    "socket",
+                    "sys",
+                    "render",
+                    "go",
+                    "factory",
+                    "resource",
+                    "pprint",
+                    "timer",
+                    "particlefx",
+                    "spine",
+                    "sprite",
+                    "json",
+                    "window",
+                    "physics",
+                },
+                disable = { "lowercase-global", "redefined-local" },
+                libraryFIles = "disable",
+            },
+        },
+        glsllint = {
+            additionalStageAssociations = {
+                [".fp"] = "frag",
+                [".vp"] = "vert",
+            },
+        },
+        file = {
+            associations = {
+                ["*.project"] = "ini",
+                ["*.script"] = "lua",
+                ["*.gui_script"] = "lua",
+                ["*.render_script"] = "lua",
+                ["*.editor_script"] = "lua",
+                ["*.fp"] = "glsl",
+                ["*.vp"] = "glsl",
+                ["*.go"] = "textproto",
+                ["*.animationset"] = "textproto",
+                ["*.atlas"] = "textproto",
+                ["*.buffer"] = "json",
+                ["*.camera"] = "textproto",
+                ["*.collection"] = "textproto",
+                ["*.collectionfactory"] = "textproto",
+                ["*.collectionproxy"] = "textproto",
+                ["*.collisionobject"] = "textproto",
+                ["*.display_profiles"] = "textproto",
+                ["*.factory"] = "textproto",
+                ["*.gamepads"] = "textproto",
+                ["*.gui"] = "textproto",
+                ["*.input_binding"] = "textproto",
+                ["*.label"] = "textproto",
+                ["*.material"] = "textproto",
+                ["*.mesh"] = "textproto",
+                ["*.model"] = "textproto",
+                ["*.particlefx"] = "textproto",
+                ["*.render"] = "textproto",
+                ["*.sound"] = "textproto",
+                ["*.spinemodel"] = "textproto",
+                ["*.spinescene"] = "textproto",
+                ["*.sprite"] = "textproto",
+                ["*.texture_profiles"] = "textproto",
+                ["*.tilemap"] = "textproto",
+                ["*.tilesource"] = "textproto",
+                ["*.manifest"] = "textproto",
+                ["*.appmanifest"] = "yaml",
+                ["*.script_api"] = "yaml",
+                ["ext.manifest"] = "yaml",
+            },
+        },
+    },
+})
+-- require("lspconfig").lua_ls.setup({
+--     on_attach = "on_attach",
+--     settings = {
+--         Lua = {
+--             runtime = {
+--                 -- Tell the language server which version of Lua you're using (LuaJIT for Defold)
+--                 version = "LuaJIT",
+--                 -- Setup your lua path
+--                 path = vim.split(package.path, "/usr/bin/lua"),
+--             },
+--             diagnostics = {
+--                 -- Get the language server to recognize the `vim` global
+--                 globals = { "vim", "go", "require" },
+--             },
+--             workspace = {
+--                 -- Make the server aware of Neovim runtime files
+--                 library = {
+--                     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+--                     [vim.fn.stdpath("config") .. "/lua"] = true,
+--                 },
+--                 -- Disable the "Do you need to configure your work environment as Lua" message
+--                 checkThirdParty = false,
+--             },
+--             telemetry = {
+--                 enable = false,
+--             },
+--         },
+--     },
+-- })

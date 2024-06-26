@@ -22,10 +22,12 @@ return {
             -- packer
             lualine_bold = true,
             -- change colors
-            -- on_colors = function(colors)
-            --     colors.hint = colors.blue
-            --     colors.error = "#ff00ff"
-            -- end,
+            on_colors = function(colors)
+                --colors.hint = "#aaff11"
+                --colors.error = "#ff00ff"
+                colors.border = "#a9b1d6"
+                --colors.terminal_black = "#7dcfff"
+            end,
         },
     },
 }
