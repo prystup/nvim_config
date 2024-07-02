@@ -53,7 +53,9 @@ require("lazy").setup({
     },
 })
 
+-- LSP LuaJIT config for DEFOLD
 require("lspconfig").lua_ls.setup({
+
     settings = {
         lua = {
             ["editor.defaultFormatter"] = "sumneko.lua",
@@ -149,32 +151,3 @@ require("lspconfig").lua_ls.setup({
         },
     },
 })
--- require("lspconfig").lua_ls.setup({
---     on_attach = "on_attach",
---     settings = {
---         Lua = {
---             runtime = {
---                 -- Tell the language server which version of Lua you're using (LuaJIT for Defold)
---                 version = "LuaJIT",
---                 -- Setup your lua path
---                 path = vim.split(package.path, "/usr/bin/lua"),
---             },
---             diagnostics = {
---                 -- Get the language server to recognize the `vim` global
---                 globals = { "vim", "go", "require" },
---             },
---             workspace = {
---                 -- Make the server aware of Neovim runtime files
---                 library = {
---                     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
---                     [vim.fn.stdpath("config") .. "/lua"] = true,
---                 },
---                 -- Disable the "Do you need to configure your work environment as Lua" message
---                 checkThirdParty = false,
---             },
---             telemetry = {
---                 enable = false,
---             },
---         },
---     },
--- })
