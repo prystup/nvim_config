@@ -13,6 +13,8 @@ vim.cmd("autocmd BufNewFile,BufRead *.atlas set filetype=proto")
 vim.cmd("autocmd BufNewFile,BufRead *.gui set filetype=proto")
 vim.cmd("autocmd BufNewFile,BufRead *.project set filetype=proto")
 
+vim.keymap.set("n", "<space>fs", ":Telescope file_browser<CR>")
+
 -- Tab
 -- vim.cmd("set tabstop=4")
 -- vim.cmd("set expandtab")
