@@ -16,9 +16,9 @@ require("lazy").setup({
         -- import any extras modules here
         { import = "lazyvim.plugins.extras.linting.eslint" },
         { import = "lazyvim.plugins.extras.formatting.prettier" },
-        { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
         { import = "lazyvim.plugins.extras.lang.typescript" },
         { import = "lazyvim.plugins.extras.lang.json" },
+        { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
         { import = "lazyvim.plugins.extras.ui.mini-animate" },
         { import = "lazyvim.plugins.extras.ui.alpha" },
         { import = "lazyvim.plugins.extras.dap.core" },
@@ -34,7 +34,7 @@ require("lazy").setup({
         version = false, -- always use the latest git commit
         -- version = "*", -- try installing the latest stable version for plugins that support semver
     },
-    install = { colorscheme = { "tokyonight-moon", "habamax" } },
+    install = { colorscheme = { "tokyonight-night", "habamax" } },
     checker = { enabled = true }, -- automatically check for plugin updates
     performance = {
         rtp = {
@@ -52,19 +52,18 @@ require("lazy").setup({
     },
 })
 
+--  telescope file browser
 require("telescope").setup({
     extensions = {
-        file_browser = {
-            theme = "ivy",
-            -- disables netrw and use telescope-file-browser in its place
-            hijack_netrw = true,
-            mappings = {
-                ["i"] = {
-                    -- your custom insert mode mappings
-                },
-                ["n"] = {
-                    -- your custom normal mode mappings
-                },
+        theme = "ivy",
+        -- disables netrw and use telescope-file-browser in its place
+        hijack_netrw = true,
+        mappings = {
+            ["i"] = {
+                -- your custom insert mode mappings
+            },
+            ["n"] = {
+                -- your custom normal mode mappings
             },
         },
     },
@@ -72,24 +71,6 @@ require("telescope").setup({
 -- To get telescope-file-browser loaded and working with telescope,
 -- you need to call load_extension, somewhere after setup function:
 require("telescope").load_extension("file_browser")
-
--- neo-tree config for hidden files
-require("neo-tree").setup({
-    filesystem = {
-        filtered_items = {
-            visible = true,
-            show_hidden_count = true,
-            hide_dotfiles = false,
-            hide_gitignored = true,
-            hide_by_name = {
-                ".git",
-                ".gitignore",
-                "package-lock.json",
-            },
-        },
-        never_show = { ".git" },
-    },
-})
 
 -- lsp symbol pictograms
 require("lspkind").init({
@@ -222,3 +203,21 @@ require("lspconfig").lua_ls.setup({
         },
     },
 })
+
+-- neo-tree config for hidden files
+-- require("neo-tree").setup({
+--     filesystem = {
+--         filtered_items = {
+--             visible = false,
+--             show_hidden_count = true,
+--             hide_dotfiles = false,
+--             hide_gitignored = true,
+--             hide_by_name = {
+--                 ".git",
+--                 ".gitignore",
+--                 "package-lock.json",
+--             },
+--         },
+--         never_show = { ".git" },
+--     },
+-- })

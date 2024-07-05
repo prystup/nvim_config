@@ -16,5 +16,7 @@ vim.cmd("autocmd BufNewFile,BufRead *.project set filetype=proto")
 vim.keymap.set("n", "<space>fs", ":Telescope file_browser<CR>")
 
 -- Tab
--- vim.cmd("set tabstop=4")
--- vim.cmd("set expandtab")
+vim.cmd("set expandtab")
+vim.cmd("set tabstop=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set shiftwidth=2")
